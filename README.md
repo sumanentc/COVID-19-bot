@@ -34,23 +34,30 @@ The data mainly comes from [M-Media-Group/Covid-19-API](https://github.com/M-Med
 
 ## Features
 
-Currently, the Bot considers India and the states within. Bot is able to answers questions related COVID-19. It uses custom spell checker and handle out of scope also. Some of the sample questions it supports are as follows</br>
+Currently, the Bot considers India and the states within.</br>
+It has the below features.</br>
 
-- What is the total number of deaths in india
-- Recovered cases in india
-- Confirmed cases in india
-- Active cases in Maharashtra
-- Active cases in Maharashtra and Goa
-- Confirmed cases in West Bengal
-- Most affected states
-- Most recovered states
-- Least affected states
-- Recovery rate in Karnataka
-- Recovery rate in Karnataka and Goa
-- Mortality rate in Goa
-- fully vaccinated people in India
-- patial vaccinated people in India
-- people fully vaccinated in India
+- Answer questions related COVID-19.
+  - What is the total number of deaths in india
+  - Recovered cases in india
+  - Confirmed cases in india
+  - Active cases in Maharashtra
+  - Active cases in Maharashtra and Goa
+  - Confirmed cases in West Bengal
+  - Most affected states
+  - Most recovered states
+  - Least affected states
+  - Recovery rate in Karnataka
+  - Recovery rate in Karnataka and Goa
+  - Mortality rate in Goa
+- Handle spelling mistakes
+
+- Answer questions related to vaccination status
+
+  - patial vaccinated people in India
+  - people fully vaccinated in India
+
+- Handle out of context questions
 
 ### Built With
 
