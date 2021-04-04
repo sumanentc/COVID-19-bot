@@ -1,6 +1,8 @@
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
+.DS_Store
+
 
 # C extensions
 *.so
@@ -19,7 +21,7 @@ var/
 *.egg-info/
 .installed.cfg
 *.egg
-models/*
+models/*.gz
 
 # Installer logs
 pip-log.txt
