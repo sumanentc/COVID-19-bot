@@ -102,6 +102,14 @@ It has the below features.</br>
 
    ```
 
+5. Start the RASA shell
+
+```
+rasa shell
+```
+
+6. Start asking questions
+
 <!-- USAGE EXAMPLES -->
 
 ## Usage
