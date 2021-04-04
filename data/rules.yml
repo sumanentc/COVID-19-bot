@@ -1,0 +1,29 @@
+version: "2.0"
+
+rules:
+
+- rule: Say goodbye anytime the user says goodbye
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye
+
+- rule: Provide user Covid-19 data
+  steps:
+  - intent: covid_status
+  - action: action_covid_search
+
+- rule: Provide user vaccine information
+  steps:
+  - intent: vaccine_info
+  - action: action_vaccine_status
+
+- rule: Provide user Covid-19 information
+  steps:
+  - intent: covid_info
+  - action: covid_info_action
+
+- rule: Provide user out-of-scope information
+  steps:
+  - intent: out_of_scope
+  - action: default_fallback_action
+

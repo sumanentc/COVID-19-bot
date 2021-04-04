@@ -1,0 +1,64 @@
+version: "2.0"
+
+intents:
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - covid_status
+  - vaccine_info
+  - out_of_scope
+  - covid_info
+
+responses:
+  utter_greet:
+  - text: "Hey! Welcome to the COVID-19 Bot!"
+
+  utter_did_that_help:
+  - text: "Did that help you?"
+
+  utter_happy:
+  - text: "Great, carry on!"
+
+  utter_goodbye:
+  - text: "Bye"
+
+  utter_iamabot:
+  - text: "I am a bot, powered by Rasa."
+
+  utter_fallback:
+  - text: "Sorry! I coudn't get you. Please ask any of the following questions."
+    buttons:
+    - title: Active cases in India
+      payload: /covid_status{{"stage":"active"}}
+    - title: Confirmed cases in Maharashtra
+      payload: /covid_status{{"state":"Maharashtra","stage":"confirmed"}}
+    - title: Most affected states
+      payload: /covid_status{{"top_bottom":"top","stage":"active"}}
+    - title: Least affected states
+      payload: /covid_status{{"top_bottom":"bottom","stage":"active"}}
+
+  utter_covid_info:
+  - text: "Coronavirus disease (COVID-19) is an infectious disease caused by a newly discovered coronavirus."
+  - text: "Coronavirus disease 2019 (COVID-19) is defined as illness caused by a novel coronavirus now called severe acute respiratory syndrome coronavirus 2 (SARS-CoV-2; formerly called 2019-nCoV), which was first identified amid an outbreak of respiratory illness cases in Wuhan City, Hubei Province, China."
+
+actions:
+  - action_covid_search
+  - action_vaccine_status
+  - utter_fallback
+  - default_fallback_action
+  - utter_covid_info
+  - covid_info_action
+
+entities:
+  - country
+  - state
+  - pandemic
+  - stage
+  - level
+  - top_bottom
+  - rate
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

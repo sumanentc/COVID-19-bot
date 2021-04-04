@@ -1,0 +1,7 @@
+version: "2.0"
+nlu:
+  - lookup: country
+    examples: |
+     - India
+     - india
+     - Ind

@@ -1,0 +1,8 @@
+version: "2.0"
+nlu:
+  - lookup: pandemic
+    examples: |
+     - coronavirus
+     - COVID-19
+     - COVID 19
+     - 2019 virus
