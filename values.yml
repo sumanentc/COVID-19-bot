@@ -15,7 +15,9 @@ rasax:
 rasa:
     # token Rasa accepts as authentication token from other Rasa services
     token: "Password123"
-    tag: "2.0.2-full"
+    name: "sumand/rasa-server"
+    # tag refers to the custom action server image tag
+    tag: "2.0.2"
 # RabbitMQ specific settings
 rabbitmq:
     # rabbitmq settings of the subchart
@@ -38,3 +40,4 @@ app:
     name: "sumand/rasa-action-server"
     # tag refers to the custom action server image tag
     tag: "2.4.0"
+ 

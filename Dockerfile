@@ -1,4 +1,4 @@
-FROM rasa/rasa:2.0.2-full
+FROM rasa/rasa:2.0.2
 
 USER root
 
@@ -12,10 +12,12 @@ RUN apt update
 # Install extra requirements for actions code, if necessary (uncomment next line)
 RUN pip install -r requirements.txt
 
+EXPOSE 5005
+
 COPY . /app
 COPY ./data /app/data
-RUN pip3 install --upgrade pip --user
-RUN  python3 -m rasa train
+RUN pip install --upgrade pip --user
+RUN  python -m rasa train
 
 # Switch back to a non-root user
 USER 1001

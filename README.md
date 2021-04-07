@@ -29,6 +29,8 @@ This is an open source bot for querying information about **Novel Coronavirus (C
 ## About The Project
 
 This is an open source bot for querying information about **Novel Coronavirus (COVID-19)**.
+![RASA Shell](./images/rasa-cli.png)
+![RASA-X ](./images/rasa-x.png)
 
 The data mainly comes from [M-Media-Group/Covid-19-API](https://github.com/M-Media-Group/Covid-19-API) repository.
 
@@ -50,14 +52,16 @@ It has the below features.</br>
   - Recovery rate in Karnataka
   - Recovery rate in Karnataka and Goa
   - Mortality rate in Goa
-- Handle spelling mistakes
+- Handle spelling mistakes using custom Spellchecker.
 
-- Answer questions related to vaccination status
+- Answer questions related to vaccination status.
 
   - patial vaccinated people in India
   - people fully vaccinated in India
 
-- Handle out of context questions
+- Handle out of context questions.
+
+- RASA-X for Interactive training.
 
 ### Built With
 
@@ -72,95 +76,96 @@ It has the below features.</br>
 ### Prerequisites
 
 - Python
-- Pipenv
+- [Pipenv](https://pypi.org/project/pipenv/)
+- [Docker](https://docs.docker.com/engine/install/)
+- [Helm](https://helm.sh/docs/intro/install/)
+- [Kubernested](https://kubernetes.io/docs/setup/)
 
 ### Installation
 
-1. Clone the repo
-   ```
-   git clone https://github.com/sumanentc/COVID-19-bot.git
-   ```
-2. Install dependencies
+- Clone the repository
 
-   ```
-   pipenv shell
+  ```
+  git clone https://github.com/sumanentc/COVID-19-bot.git
+  ```
 
-   pipenv install
-   ```
+- Using RASA Shell and Stand alone Action Server
 
-3. Train the model
+  1. Install dependencies
 
-   ```
-   rasa train
+  ```
+  pipenv shell
 
-   ```
+  pipenv install
+  ```
 
-4. Start the Action Server
+  2. Train the model
 
-   ```
-   rasa run actions
+  ```
+  rasa train
 
-   ```
+  ```
 
-5. Start the RASA shell
+  3. Start the Action Server
 
-```
-rasa shell
-```
+  ```
+  rasa run actions
 
-6. Start asking questions
+  ```
+
+  4. Start the RASA shell
+
+  ```
+  rasa shell
+  ```
+
+  5. Start asking questions on the RASA shell
+
+- Using RASA-X
+
+  1. Build Action Server Docker image
+
+  ```
+  docker build actions/ -t sumand/rasa-action-server:2.4.0
+
+  docker push sumand/rasa-action-server:2.4.0
+
+  ```
+
+  2. Build Rasa NLU Docker image
+
+  ```
+  docker build . -t sumand/rasa-server:2.0.2
+
+  docker push sumand/rasa-server:2.0.2
+  ```
+
+  3. Install RASA-X. I used [Helm-Chart](https://rasa.com/docs/rasa-x/installation-and-setup/install/helm-chart) for installation.
+
+  ```
+  kubectl create namespace rasa
+
+  helm repo add rasa-x https://rasahq.github.io/rasa-x-helm
+
+  helm --namespace rasa install --values values.yml my-release rasa-x/rasa-x
+
+  helm --namespace rasa upgrade --values values.yml my-release rasa-x/rasa-x
+  ```
+
+  4. Deploy [RASA-X](https://rasa.com/docs/rasa-x/installation-and-setup/deploy)
 
 <!-- USAGE EXAMPLES -->
 
 ## Usage
 
-1. Start the Action Server locally
-
-   ```
-   rasa run actions
-
-   ```
-
-2. To build the Action Server image using the Dockerfile
-
-```
-docker build actions/ -t sumand/rasa-action-server:2.4.0
-
-```
-
-3. To Run the Action Server using the Docker Image
-
-```
-docker run -p 5055:5055 --name my-action-server sumand/rasa-action-server:2.4.0
-
-```
-
-4. To train RASA models
-
-```
-rasa train
-
-```
-
-5. To start RASA shell
+1. Use RASA Shell to test the Bot.
 
 ```
 rasa shell
-
 ```
 
-6. To install RASA-X using Helm Chart
-
-```
-kubectl create namespace rasa
-
-helm repo add rasa-x https://rasahq.github.io/rasa-x-helm
-
-helm --namespace rasa install --values values.yml my-release rasa-x/rasa-x
-
-helm --namespace rasa upgrade --values values.yml my-release rasa-x/rasa-x
-
-```
+2. Use RASA-X to test the Bot.
+   ![RASA-X ](./images/RASA-X-UI.png)
 
 <!-- ACKNOWLEDGEMENTS -->
 

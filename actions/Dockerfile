@@ -9,6 +9,8 @@ COPY requirements.txt ./
 # Change back to root user to install dependencies
 USER root
 
+EXPOSE 5055
+
 RUN apt-get update
 RUN apt update
 
