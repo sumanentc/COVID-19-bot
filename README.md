@@ -48,6 +48,7 @@ It has the below features.</br>
   - How many Confirmed cases are there in West Bengal
   - Which states are Most affected
   - Which states have maximum recovered states
+  - Which states have most deaths
   - Which states are Least affected ?
   - What is the Recovery rate in Karnataka
   - What is the Recovery rate in Karnataka and Goa

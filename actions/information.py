@@ -207,21 +207,25 @@ class CovidInformation:
                 sorted(cases_dict.items(), key=lambda x: x[1], reverse=True)
             )
             if stage.lower() == "deaths":
-                top_bottom_message.append("Most Deaths occurred in below states")
+                top_bottom_message.append("States with maximum deaths are as below :")
                 n_items = list(sorted_dic.items())[:3]
                 for key, value in n_items:
                     top_bottom_message.append("\n")
                     message = self.get_top_bottom_message(stage, value, key)
                     top_bottom_message.append(message)
             elif stage.lower() == "recovered":
-                top_bottom_message.append("Most Recovered states are as below")
+                top_bottom_message.append(
+                    "States with maximum recovered cases are as below :"
+                )
                 n_items = list(sorted_dic.items())[:3]
                 for key, value in n_items:
                     top_bottom_message.append("\n")
                     message = self.get_top_bottom_message(stage, value, key)
                     top_bottom_message.append(message)
             elif stage.lower() == "active":
-                top_bottom_message.append("Most Active states are as below")
+                top_bottom_message.append(
+                    "States with maximum active cases are as below :"
+                )
                 n_items = list(sorted_dic.items())[:3]
                 for key, value in n_items:
                     top_bottom_message.append("\n")
@@ -232,21 +236,25 @@ class CovidInformation:
             top_bottom_message = []
             sorted_dic = dict(sorted(cases_dict.items(), key=lambda x: x[1]))
             if stage.lower() == "deaths":
-                top_bottom_message.append("Least Deaths occurred in below states")
+                top_bottom_message.append("States with minimum deaths are as below :")
                 n_items = list(sorted_dic.items())[:3]
                 for key, value in n_items:
                     top_bottom_message.append("\n")
                     message = self.get_top_bottom_message(stage, value, key)
                     top_bottom_message.append(message)
             elif stage.lower() == "recovered":
-                top_bottom_message.append("Least Recovered states are as below")
+                top_bottom_message.append(
+                    "States with minimum recovered cases are as below :"
+                )
                 n_items = list(sorted_dic.items())[:3]
                 for key, value in n_items:
                     top_bottom_message.append("\n")
                     message = self.get_top_bottom_message(stage, value, key)
                     top_bottom_message.append(message)
             elif stage.lower() == "active":
-                top_bottom_message.append("Least Affected states are as below")
+                top_bottom_message.append(
+                    "States with minimum active cases are as below :"
+                )
                 n_items = list(sorted_dic.items())[:3]
                 for key, value in n_items:
                     top_bottom_message.append("\n")
