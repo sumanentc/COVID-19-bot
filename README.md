@@ -1,6 +1,6 @@
 # COVID-19 Bot
 
-This is an open source bot for querying information about **Novel Coronavirus (COVID-19)**.
+This is an open source bot useful for querying information related to **Novel Coronavirus (COVID-19)**.
 
 <!-- TABLE OF CONTENTS -->
 <details open="open">
@@ -28,7 +28,7 @@ This is an open source bot for querying information about **Novel Coronavirus (C
 
 ## About The Project
 
-This is an open source bot for querying information about **Novel Coronavirus (COVID-19)**.
+This is an open source bot useful for querying information related to **Novel Coronavirus (COVID-19)**.
 ![RASA Shell](./images/rasa-cli.png)
 ![RASA-X ](./images/rasa-x.png)
 
@@ -39,29 +39,32 @@ The data mainly comes from [M-Media-Group/Covid-19-API](https://github.com/M-Med
 Currently, the Bot considers India and the states within.</br>
 It has the below features.</br>
 
-- Answer questions related COVID-19.
-  - What is the total number of deaths in india
-  - Recovered cases in india
-  - Confirmed cases in india
-  - Active cases in Maharashtra
-  - Active cases in Maharashtra and Goa
-  - Confirmed cases in West Bengal
-  - Most affected states
-  - Most recovered states
-  - Least affected states
-  - Recovery rate in Karnataka
-  - Recovery rate in Karnataka and Goa
-  - Mortality rate in Goa
-- Handle spelling mistakes using custom Spellchecker.
+- It answers questions related COVID-19.
+  - What is the total number of deaths in india?
+  - How many recovered cases are there in india
+  - How many confirmed cases are there in Ind
+  - What is the total number of Active cases in Maharashtra
+  - What is the total number of actve cases in Maharashtra and Goa
+  - How many Confirmed cases are there in West Bengal
+  - Which states are Most affected
+  - Which states have maximum recovered states
+  - Which states are Least affected ?
+  - What is the Recovery rate in Karnataka
+  - What is the Recovery rate in Karnataka and Goa
+  - What is the Mortality rate in Goa
+- It can handle spelling mistakes.
 
-- Answer questions related to vaccination status.
+- It can answers questions related to vaccination.
 
-  - patial vaccinated people in India
-  - people fully vaccinated in India
+  - Number of people patially vaccinated in India
+  - Number of people fully vaccinated
 
-- Handle out of context questions.
+- It can handle out of context questions.
 
-- RASA-X for Interactive training.
+  - How are you?
+  - How is the weather?
+
+- It has RASA-X UI for Interactive training and usage
 
 ### Built With
 
@@ -79,93 +82,11 @@ It has the below features.</br>
 - [Pipenv](https://pypi.org/project/pipenv/)
 - [Docker](https://docs.docker.com/engine/install/)
 - [Helm](https://helm.sh/docs/intro/install/)
-- [Kubernested](https://kubernetes.io/docs/setup/)
+- [Kubernetes](https://kubernetes.io/docs/setup/)
 
 ### Installation
 
-- Clone the repository
-
-  ```
-  git clone https://github.com/sumanentc/COVID-19-bot.git
-  ```
-
-- Using RASA Shell and Stand alone Action Server
-
-  1. Install dependencies
-
-  ```
-  pipenv shell
-
-  pipenv install
-  ```
-
-  2. Train the model
-
-  ```
-  rasa train
-
-  ```
-
-  3. Start the Action Server
-
-  ```
-  rasa run actions
-
-  ```
-
-  4. Start the RASA shell
-
-  ```
-  rasa shell
-  ```
-
-  5. Start asking questions on the RASA shell
-
-- Using RASA-X
-
-  1. Build Action Server Docker image
-
-  ```
-  docker build actions/ -t sumand/rasa-action-server:2.4.0
-
-  docker push sumand/rasa-action-server:2.4.0
-
-  ```
-
-  2. Build Rasa NLU Docker image
-
-  ```
-  docker build . -t sumand/rasa-server:2.0.2
-
-  docker push sumand/rasa-server:2.0.2
-  ```
-
-  3. Install RASA-X. I used [Helm-Chart](https://rasa.com/docs/rasa-x/installation-and-setup/install/helm-chart) for installation.
-
-  ```
-  kubectl create namespace rasa
-
-  helm repo add rasa-x https://rasahq.github.io/rasa-x-helm
-
-  helm --namespace rasa install --values values.yml my-release rasa-x/rasa-x
-
-  helm --namespace rasa upgrade --values values.yml my-release rasa-x/rasa-x
-  ```
-
-  4. Deploy [RASA-X](https://rasa.com/docs/rasa-x/installation-and-setup/deploy)
-
-<!-- USAGE EXAMPLES -->
-
 ## Usage
-
-1. Use RASA Shell to test the Bot.
-
-```
-rasa shell
-```
-
-2. Use RASA-X to test the Bot.
-   ![RASA-X ](./images/RASA-X-UI.png)
 
 <!-- ACKNOWLEDGEMENTS -->
 
