@@ -67,11 +67,14 @@ It has the below features.</br>
 
 - It has RASA-X UI for Interactive training and usage
 
+- It supports Facebok Messanger
+
 ### Built With
 
 - [Rasa : 2.5.0 ](https://rasa.com/docs/rasa/)
 - [Python : 3.8 ](https://www.python.org/)
 - [Rasa-SDK Action Server : 2.5.0 ](https://rasa.com/docs/action-server)
+- [RASA-X :0.38.1](https://rasa.com/docs/rasa-x/)
 
 <!-- GETTING STARTED -->
 

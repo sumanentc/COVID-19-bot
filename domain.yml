@@ -37,6 +37,27 @@ responses:
       payload: /covid_status{{"top_bottom":"top","stage":"active"}}
     - title: Least affected states
       payload: /covid_status{{"top_bottom":"bottom","stage":"active"}}
+    - title: People fully vaccinated
+      payload: /vaccine_info{{"level":"people_vaccinated","country":"India"}}
+      
+  - text: "Sorry! I coudn't get you. Please ask any of the following questions."
+    quick_replies:
+    - title: Active cases in India
+      payload: /covid_status{{"stage":"active"}}
+      content_type: text
+    - title: Confirmed cases in Maharashtra
+      payload: /covid_status{{"state":"Maharashtra","stage":"confirmed"}}
+      content_type: text
+    - title: Most affected states
+      payload: /covid_status{{"top_bottom":"top","stage":"active"}}
+      content_type: text
+    - title: Least affected states
+      payload: /covid_status{{"top_bottom":"bottom","stage":"active"}}
+      content_type: text
+    - title: People fully vaccinated
+      payload: /vaccine_info{{"level":"people_vaccinated","country":"India"}}
+      content_type: text
+     
 
   utter_covid_info:
   - text: "Coronavirus disease (COVID-19) is an infectious disease caused by a newly discovered coronavirus."
