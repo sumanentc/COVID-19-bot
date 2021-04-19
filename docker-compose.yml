@@ -1,26 +1,31 @@
 version: '3'
 services:
-    nginx:
-      container_name: "nginx"
-      image: nginx
-      volumes:
-        - ./nginx.conf:/etc/nginx/nginx.conf
-      ports:
-        - 443:443
-      depends_on: 
-        - rasa
-        - action_server
-    rasa:
-      container_name: "rasa_server"
-      build: 
-        context: backend
-      ports: 
-        - "5005:5005"
-    action_server:
-      container_name: "action_server"
-      build: 
-        context: actions
-      volumes:
-        - ./actions:/app/actions
-      ports:
-        - "5055:5055"  
+  ngrok:
+    image: shkoliar/ngrok:latest
+    networks: ['rasa-network']
+    ports:
+      - 4551:4551
+    links:
+      - rasa
+    environment:
+      - DOMAIN=rasa
+      - PORT=5005
+    depends_on:
+      - rasa
+  rasa:    
+    image: sumand/rasa-server:2.5.0
+    networks: ['rasa-network']
+    ports:
+    - "5005:5005"
+    volumes:
+    - "./:/app"
+    command:
+    - run
+  action-server:
+    image: sumand/rasa-action-server:2.5.0
+    networks: ['rasa-network']
+    ports:
+    - "5055:5055"
+    volumes:
+    - "./actions:/app/actions"
+networks: {rasa-network: {}}

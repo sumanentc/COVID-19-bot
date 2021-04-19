@@ -69,9 +69,9 @@ It has the below features.</br>
 
 ### Built With
 
-- [Rasa : 2.0.2 ](https://rasa.com/docs/rasa/)
+- [Rasa : 2.5.0 ](https://rasa.com/docs/rasa/)
 - [Python : 3.8 ](https://www.python.org/)
-- [Rasa-SDK Action Server : 2.4.0 ](https://rasa.com/docs/action-server)
+- [Rasa-SDK Action Server : 2.5.0 ](https://rasa.com/docs/action-server)
 
 <!-- GETTING STARTED -->
 
@@ -86,6 +86,46 @@ It has the below features.</br>
 - [Kubernetes](https://kubernetes.io/docs/setup/)
 
 ### Installation
+
+- Clone the repository
+
+  ```
+  git clone https://github.com/sumanentc/COVID-19-bot.git
+  ```
+
+- Using RASA Shell and Stand alone Action Server
+
+  1. Install dependencies
+
+  ```
+  pipenv shell
+
+  pipenv install
+  ```
+
+  2. Train the model
+
+  ```
+  rasa train
+
+  ```
+
+  3. Start the Action Server
+
+  ```
+  rasa run actions -vv
+
+  ```
+
+  4. Start the RASA shell
+
+  ```
+  rasa shell -v
+  ```
+
+  5. Start asking questions on the RASA shell
+
+- Using RASA-X
 
 ## Usage
 

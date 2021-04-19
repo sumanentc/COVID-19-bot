@@ -17,7 +17,7 @@ rasa:
     token: "Password123"
     name: "sumand/rasa-server"
     # tag refers to the custom action server image tag
-    tag: "2.0.2"
+    tag: "2.5.0"
 # RabbitMQ specific settings
 rabbitmq:
     # rabbitmq settings of the subchart
@@ -39,5 +39,5 @@ app:
     # name of the custom action server image to use
     name: "sumand/rasa-action-server"
     # tag refers to the custom action server image tag
-    tag: "2.4.0"
+    tag: "2.5.0"
  
