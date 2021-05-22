@@ -9,6 +9,7 @@ intents:
   - vaccine_info
   - out_of_scope
   - covid_info
+  - vaccine_slot
 
 responses:
   utter_greet:
@@ -39,7 +40,7 @@ responses:
       payload: /covid_status{{"top_bottom":"bottom","stage":"active"}}
     - title: People fully vaccinated
       payload: /vaccine_info{{"level":"people_vaccinated","country":"India"}}
-      
+
   - text: "Sorry! I coudn't get you. Please ask any of the following questions."
     quick_replies:
     - title: Active cases in India
@@ -70,6 +71,7 @@ actions:
   - default_fallback_action
   - utter_covid_info
   - covid_info_action
+  - action_vaccine_slot
 
 entities:
   - country
@@ -79,6 +81,8 @@ entities:
   - level
   - top_bottom
   - rate
+  - district
+  - pincode
 
 session_config:
   session_expiration_time: 60

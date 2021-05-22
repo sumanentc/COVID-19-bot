@@ -1,4 +1,4 @@
-# COVID-19 Bot
+# Covi-India-Bot
 
 This is an open source bot useful for querying information related to **Novel Coronavirus (COVID-19)**.
 
@@ -59,6 +59,12 @@ It has the below features.</br>
 
   - Number of people patially vaccinated in India
   - Number of people fully vaccinated
+
+- It can answers questions related to vaccination slots availability.
+
+  - Slots available in Pune
+  - Slots available in Mumbai
+  - Slots available in 400066
 
 - It can handle out of context questions.
 
@@ -128,7 +134,69 @@ It has the below features.</br>
 
   5. Start asking questions on the RASA shell
 
+- Using Docker Compose
+
+1. Build Action Server Docker image
+
+```
+docker build actions/ -t sumand/rasa-action-server:2.5.0
+
+docker push sumand/rasa-action-server:2.5.0
+
+```
+
+2. Build Rasa NLU Docker image
+
+```
+docker build . -t sumand/rasa-server:2.5.0
+
+docker push sumand/rasa-server:2.5.0
+```
+
+3. Start the NLU Container
+
+```
+docker-compose up
+```
+
+4. Test the Bot
+
+```
+curl -XPOST localhost:5005/webhooks/rest/webhook -d '{"sender":"Me","message":"what is the total number of deaths in india"}'
+```
+
 - Using RASA-X
+
+1.  Build Action Server Docker image
+
+```
+docker build actions/ -t sumand/rasa-action-server:2.5.0
+
+docker push sumand/rasa-action-server:2.5.0
+
+```
+
+2. Build Rasa NLU Docker image
+
+```
+docker build . -t sumand/rasa-server:2.5.0
+
+docker push sumand/rasa-server:2.5.0
+```
+
+3. Install RASA-X. I used [Helm-Chart](https://rasa.com/docs/rasa-x/installation-and-setup/install/helm-chart) for installation.
+
+```
+kubectl create namespace rasa
+
+helm repo add rasa-x https://rasahq.github.io/rasa-x-helm
+
+helm --namespace rasa install --values values.yml my-release rasa-x/rasa-x
+
+helm --namespace rasa upgrade --values values.yml my-release rasa-x/rasa-x
+```
+
+4. Deploy [RASA-X](https://rasa.com/docs/rasa-x/installation-and-setup/deploy)
 
 ## Usage
 
@@ -138,3 +206,4 @@ It has the below features.</br>
 
 - [M-Media-Group/Covid-19-API](https://github.com/M-Media-Group/Covid-19-API)
 - [Install RASA-X using Helm Chart](https://rasa.com/docs/rasa-x/installation-and-setup/install/helm-chart/)
+- [Co-WIN Public APIs](https://apisetu.gov.in/public/marketplace/api/cowin/cowin-public-v2)

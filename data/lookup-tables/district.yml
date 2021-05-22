@@ -1,0 +1,766 @@
+version: "2.0"
+nlu:
+  - lookup: district
+    examples: |
+      - Adilabad
+      - Agar
+      - Agatti Island
+      - Agra
+      - Ahmedabad
+      - Ahmedabad Corporation
+      - Ahmednagar
+      - Aizawl East
+      - Aizawl West
+      - Ajmer
+      - Akola
+      - Alappuzha
+      - Aligarh
+      - Alipurduar District
+      - Alirajpur
+      - Almora
+      - Alwar
+      - Ambala
+      - Ambedkar Nagar
+      - Amethi
+      - Amravati
+      - Amreli
+      - Amritsar
+      - Amroha
+      - Anand
+      - Anantapur
+      - Anantnag
+      - Angul
+      - Anjaw
+      - Anuppur
+      - Aranthangi
+      - Araria
+      - Aravalli
+      - Ariyalur
+      - Arwal
+      - Ashoknagar
+      - Attur
+      - Auraiya
+      - Aurangabad
+      - Aurangabad
+      - Ayodhya
+      - Azamgarh
+      - BBMP
+      - Badaun
+      - Bagalkot
+      - Bageshwar
+      - Baghpat
+      - Bahraich
+      - Baksa
+      - Balaghat
+      - Balangir
+      - Balarampur
+      - Balasore
+      - Ballia
+      - Balod
+      - Baloda bazar
+      - Balrampur
+      - Banaskantha
+      - Banda
+      - Bandipore
+      - Bangalore Rural
+      - Bangalore Urban
+      - Banka
+      - Bankura
+      - Banswara
+      - Barabanki
+      - Baramulla
+      - Baran
+      - Bareilly
+      - Bargarh
+      - Barmer
+      - Barnala
+      - Barpeta
+      - Barwani
+      - Basirhat HD (North 24 Parganas)
+      - Bastar
+      - Basti
+      - Bathinda
+      - Beed
+      - Begusarai
+      - Belgaum
+      - Bellary
+      - Bemetara
+      - Betul
+      - Bhadohi
+      - Bhadradri Kothagudem
+      - Bhadrak
+      - Bhagalpur
+      - Bhandara
+      - Bharatpur
+      - Bharuch
+      - Bhavnagar
+      - Bhavnagar Corporation
+      - Bhilwara
+      - Bhind
+      - Bhiwani
+      - Bhojpur
+      - Bhopal
+      - Bidar
+      - Bijapur
+      - Bijnour
+      - Bikaner
+      - Bilaspur
+      - Bilaspur
+      - Birbhum
+      - Bishnupur
+      - Bishnupur HD (Bankura)
+      - Biswanath
+      - Bokaro
+      - Bongaigaon
+      - Botad
+      - Boudh
+      - Budgam
+      - Bulandshahr
+      - Buldhana
+      - Bundi
+      - Burhanpur
+      - Buxar
+      - COOCHBEHAR
+      - Cachar
+      - Central Delhi
+      - Chamarajanagar
+      - Chamba
+      - Chamba
+      - Chamoli
+      - Champawat
+      - Champhai
+      - Chandauli
+      - Chandel
+      - Chandigarh
+      - Chandrapur
+      - Changlang
+      - Charaideo
+      - Charkhi Dadri
+      - Chatra
+      - Chengalpet
+      - Chennai
+      - Cheyyar
+      - Chhatarpur
+      - Chhindwara
+      - Chhotaudepur
+      - Chikamagalur
+      - Chikkaballapur
+      - Chirang
+      - Chitradurga
+      - Chitrakoot
+      - Chittoor
+      - Chittorgarh
+      - Churachandpur
+      - Churu
+      - Coimbatore
+      - Cooch Behar
+      - Cuddalore
+      - Cuttack
+      - Dadra and Nagar Haveli
+      - Dahod
+      - Dakshin Dinajpur
+      - Dakshina Kannada
+      - Daman
+      - Damoh
+      - Dang
+      - Dantewada
+      - Darbhanga
+      - Darjeeling
+      - Darrang
+      - Datia
+      - Dausa
+      - Davanagere
+      - Dehradun
+      - Deogarh
+      - Deoghar
+      - Deoria
+      - Devbhumi Dwaraka
+      - Dewas
+      - Dhalai
+      - Dhamtari
+      - Dhanbad
+      - Dhar
+      - Dharmapuri
+      - Dharwad
+      - Dhemaji
+      - Dhenkanal
+      - Dholpur
+      - Dhubri
+      - Dhule
+      - Diamond Harbor HD (S 24 Parganas)
+      - Dibang Valley
+      - Dibrugarh
+      - Dima Hasao
+      - Dimapur
+      - Dindigul
+      - Dindori
+      - Diu
+      - Doda
+      - Dumka
+      - Dungarpur
+      - Durg
+      - East Bardhaman
+      - East Champaran
+      - East Delhi
+      - East Garo Hills
+      - East Godavari
+      - East Jaintia Hills
+      - East Kameng
+      - East Khasi Hills
+      - East Siang
+      - East Sikkim
+      - East Singhbhum
+      - Ernakulam
+      - Erode
+      - Etah
+      - Etawah
+      - Faridabad
+      - Faridkot
+      - Farrukhabad
+      - Fatehabad
+      - Fatehgarh Sahib
+      - Fatehpur
+      - Fazilka
+      - Ferozpur
+      - Firozabad
+      - Gadag
+      - Gadchiroli
+      - Gajapati
+      - Ganderbal
+      - Gandhinagar
+      - Gandhinagar Corporation
+      - Ganjam
+      - Garhwa
+      - Gariaband
+      - Gaurela Pendra Marwahi
+      - Gautam Buddha Nagar
+      - Gaya
+      - Ghaziabad
+      - Ghazipur
+      - Gir Somnath
+      - Giridih
+      - Goalpara
+      - Godda
+      - Golaghat
+      - Gomati
+      - Gonda
+      - Gondia
+      - Gopalganj
+      - Gorakhpur
+      - Gulbarga
+      - Gumla
+      - Guna
+      - Guntur
+      - Gurdaspur
+      - Gurgaon
+      - Gwalior
+      - Hailakandi
+      - Hamirpur
+      - Hamirpur
+      - Hanumangarh
+      - Hapur
+      - Harda
+      - Hardoi
+      - Haridwar
+      - Hassan
+      - Hathras
+      - Haveri
+      - Hazaribagh
+      - Hingoli
+      - Hisar
+      - Hojai
+      - Hoogly
+      - Hoshangabad
+      - Hoshiarpur
+      - Howrah
+      - Hyderabad
+      - Idukki
+      - Imphal East
+      - Imphal West
+      - Indore
+      - Itanagar Capital Complex
+      - Jabalpur
+      - Jagatsinghpur
+      - Jagtial
+      - Jaipur I
+      - Jaipur II
+      - Jaisalmer
+      - Jajpur
+      - Jalandhar
+      - Jalaun
+      - Jalgaon
+      - Jalna
+      - Jalore
+      - Jalpaiguri
+      - Jammu
+      - Jamnagar
+      - Jamnagar Corporation
+      - Jamtara
+      - Jamui
+      - Jangaon
+      - Janjgir-Champa
+      - Jashpur
+      - Jaunpur
+      - Jayashankar Bhupalpally
+      - Jehanabad
+      - Jhabua
+      - Jhajjar
+      - Jhalawar
+      - Jhansi
+      - Jhargram
+      - Jharsuguda
+      - Jhunjhunu
+      - Jind
+      - Jiribam
+      - Jodhpur
+      - Jogulamba Gadwal
+      - Jorhat
+      - Junagadh
+      - Junagadh Corporation
+      - Kaimur
+      - Kaithal
+      - Kakching
+      - Kalahandi
+      - Kalimpong
+      - Kallakurichi
+      - Kamareddy
+      - Kamjong
+      - Kamle
+      - Kamrup Metropolitan
+      - Kamrup Rural
+      - Kanchipuram
+      - Kandhamal
+      - Kangpokpi
+      - Kangra
+      - Kangra
+      - Kanker
+      - Kannauj
+      - Kannur
+      - Kanpur Dehat
+      - Kanpur Nagar
+      - Kanyakumari
+      - Kapurthala
+      - Karaikal
+      - Karauli
+      - Karbi-Anglong
+      - Kargil
+      - Karimganj
+      - Karimnagar
+      - Karnal
+      - Karur
+      - Kasaragod
+      - Kasganj
+      - Kathua
+      - Katihar
+      - Katni
+      - Kaushambi
+      - Kawardha
+      - Kendrapara
+      - Kendujhar
+      - Khagaria
+      - Khammam
+      - Khandwa
+      - Khargone
+      - Kheda
+      - Khowai
+      - Khunti
+      - Khurda
+      - Kinnaur
+      - Kinnaur
+      - Kiphire
+      - Kishanganj
+      - Kishtwar
+      - Kodagu
+      - Koderma
+      - Kohima
+      - Kokrajhar
+      - Kolar
+      - Kolasib
+      - Kolhapur
+      - Kolkata
+      - Kollam
+      - Kondagaon
+      - Koppal
+      - Koraput
+      - Korba
+      - Koriya
+      - Kota
+      - Kottayam
+      - Kovilpatti
+      - Kozhikode
+      - Kra Daadi
+      - Krishna
+      - Krishnagiri
+      - Kulgam
+      - Kullu
+      - Kumuram Bheem
+      - Kupwara
+      - Kurnool
+      - Kurukshetra
+      - Kurung Kumey
+      - Kushinagar
+      - Kutch
+      - Lahaul Spiti
+      - Lakhimpur
+      - Lakhimpur Kheri
+      - Lakhisarai
+      - Lakshadweep
+      - Lalitpur
+      - Latehar
+      - Latur
+      - Lawngtlai
+      - Leh
+      - Lepa Rada
+      - Lohardaga
+      - Lohit
+      - Longding
+      - Longleng
+      - Lower Dibang Valley
+      - Lower Siang
+      - Lower Subansiri
+      - Lucknow
+      - Ludhiana
+      - Lunglei
+      - Madhepura
+      - Madhubani
+      - Madurai
+      - Mahabubabad
+      - Mahabubnagar
+      - Maharajganj
+      - Mahasamund
+      - Mahe
+      - Mahendragarh
+      - Mahisagar
+      - Mahoba
+      - Mainpuri
+      - Majuli
+      - Malappuram
+      - Malda
+      - Malkangiri
+      - Mamit
+      - Mancherial
+      - Mandi
+      - Mandi
+      - Mandla
+      - Mandsaur
+      - Mandya
+      - Mansa
+      - Mathura
+      - Mau
+      - Mayurbhanj
+      - Medak
+      - Medchal
+      - Meerut
+      - Mehsana
+      - Mirzapur
+      - Moga
+      - Mokokchung
+      - Mon
+      - Moradabad
+      - Morbi
+      - Morena
+      - Morigaon
+      - Mulugu
+      - Mumbai
+      - Mungeli
+      - Munger
+      - Murshidabad
+      - Muzaffarnagar
+      - Muzaffarpur
+      - Mysore
+      - Nabarangpur
+      - Nadia
+      - Nagaon
+      - Nagapattinam
+      - Nagarkurnool
+      - Nagaur
+      - Nagpur
+      - Nainital
+      - Nalanda
+      - Nalbari
+      - Nalgonda
+      - Namakkal
+      - Namsai
+      - Nanded
+      - Nandigram HD (East Medinipore)
+      - Nandurbar
+      - Narayanpet
+      - Narayanpur
+      - Narmada
+      - Narsinghpur
+      - Nashik
+      - Navsari
+      - Nawada
+      - Nayagarh
+      - Neemuch
+      - New Delhi
+      - Nicobar
+      - Nilgiris
+      - Nirmal
+      - Nizamabad
+      - Noney
+      - North 24 Parganas
+      - North Delhi
+      - North East Delhi
+      - North Garo Hills
+      - North Goa
+      - North Sikkim
+      - North Tripura
+      - North West Delhi
+      - North and Middle Andaman
+      - Nuapada
+      - Nuh
+      - Osmanabad
+      - Pakke Kessang
+      - Pakur
+      - Palakkad
+      - Palamu
+      - Palani
+      - Palghar
+      - Pali
+      - Palwal
+      - Panchkula
+      - Panchmahal
+      - Panipat
+      - Panna
+      - Papum Pare
+      - Paramakudi
+      - Parbhani
+      - Paschim Medinipore
+      - Patan
+      - Pathanamthitta
+      - Pathankot
+      - Patiala
+      - Patna
+      - Pauri Garhwal
+      - Peddapalli
+      - Perambalur
+      - Peren
+      - Phek
+      - Pherzawl
+      - Pilibhit
+      - Pithoragarh
+      - Poonamallee
+      - Poonch
+      - Porbandar
+      - Prakasam
+      - Pratapgarh
+      - Pratapgarh
+      - Prayagraj
+      - Puducherry
+      - Pudukkottai
+      - Pulwama
+      - Pune
+      - Purba Medinipore
+      - Puri
+      - Purnia
+      - Purulia
+      - Raebareli
+      - Raichur
+      - Raigad
+      - Raigarh
+      - Raipur
+      - Raisen
+      - Rajanna Sircilla
+      - Rajgarh
+      - Rajkot
+      - Rajkot Corporation
+      - Rajnandgaon
+      - Rajouri
+      - Rajsamand
+      - Ramanagara
+      - Ramanathapuram
+      - Ramban
+      - Ramgarh
+      - Rampur
+      - Rampurhat HD (Birbhum)
+      - Ranchi
+      - Rangareddy
+      - Ranipet
+      - Ratlam
+      - Ratnagiri
+      - Rayagada
+      - Reasi
+      - Rewa
+      - Rewari
+      - Ri-Bhoi
+      - Rohtak
+      - Rohtas
+      - Rudraprayag
+      - Rup Nagar
+      - SAS Nagar
+      - SBS Nagar
+      - Sabarkantha
+      - Sagar
+      - Saharanpur
+      - Saharsa
+      - Sahebganj
+      - Salem
+      - Samastipur
+      - Samba
+      - Sambalpur
+      - Sambhal
+      - Sangareddy
+      - Sangli
+      - Sangrur
+      - Sant Kabir Nagar
+      - Saran
+      - Satara
+      - Satna
+      - Sawai Madhopur
+      - Sehore
+      - Senapati
+      - Seoni
+      - Sepahijala
+      - Seraikela Kharsawan
+      - Serchhip
+      - Shahdara
+      - Shahdol
+      - Shahjahanpur
+      - Shajapur
+      - Shamli
+      - Sheikhpura
+      - Sheohar
+      - Sheopur
+      - Shi Yomi
+      - Shimla
+      - Shimla
+      - Shimoga
+      - Shivpuri
+      - Shopian
+      - Shravasti
+      - Siaha
+      - Siang
+      - Siddharthnagar
+      - Siddipet
+      - Sidhi
+      - Sikar
+      - Simdega
+      - Sindhudurg
+      - Singrauli
+      - Sirmaur
+      - Sirohi
+      - Sirsa
+      - Sitamarhi
+      - Sitapur
+      - Sivaganga
+      - Sivakasi
+      - Sivasagar
+      - Siwan
+      - Solan
+      - Solapur
+      - Sonbhadra
+      - Sonipat
+      - Sonitpur
+      - South 24 Parganas
+      - South Andaman
+      - South Delhi
+      - South East Delhi
+      - South Garo Hills
+      - South Goa
+      - South Salmara Mankachar
+      - South Sikkim
+      - South Tripura
+      - South West Delhi
+      - South West Garo Hills
+      - South West Khasi Hills
+      - Sri Ganganagar
+      - Sri Muktsar Sahib
+      - Sri Potti Sriramulu Nellore
+      - Srikakulam
+      - Srinagar
+      - Subarnapur
+      - Sukma
+      - Sultanpur
+      - Sundargarh
+      - Supaul
+      - Surajpur
+      - Surat
+      - Surat Corporation
+      - Surendranagar
+      - Surguja
+      - Suryapet
+      - Tamenglong
+      - Tapi
+      - Tarn Taran
+      - Tawang
+      - Tehri Garhwal
+      - Tengnoupal
+      - Tenkasi
+      - Thane
+      - Thanjavur
+      - Theni
+      - Thiruvananthapuram
+      - Thoothukudi (Tuticorin)
+      - Thoubal
+      - Thrissur
+      - Tikamgarh
+      - Tinsukia
+      - Tirap
+      - Tiruchirappalli
+      - Tirunelveli
+      - Tirupattur
+      - Tiruppur
+      - Tiruvallur
+      - Tiruvannamalai
+      - Tiruvarur
+      - Tonk
+      - Tuensang
+      - Tumkur
+      - Udaipur
+      - Udalguri
+      - Udham Singh Nagar
+      - Udhampur
+      - Udupi
+      - Ujjain
+      - Ukhrul
+      - Umaria
+      - Una
+      - Unakoti
+      - Unnao
+      - Upper Siang
+      - Upper Subansiri
+      - Uttar Dinajpur
+      - Uttar Kannada
+      - Uttarkashi
+      - Vadodara
+      - Vadodara Corporation
+      - Vaishali
+      - Valsad
+      - Varanasi
+      - Vellore
+      - Vidisha
+      - Vijayapura
+      - Vikarabad
+      - Viluppuram
+      - Virudhunagar
+      - Visakhapatnam
+      - Vizianagaram
+      - Wanaparthy
+      - Warangal(Rural)
+      - Warangal(Urban)
+      - Wardha
+      - Washim
+      - Wayanad
+      - West Bardhaman
+      - West Champaran
+      - West Delhi
+      - West Garo Hills
+      - West Godavari
+      - West Jaintia Hills
+      - West Kameng
+      - West Karbi Anglong
+      - West Khasi Hills
+      - West Siang
+      - West Sikkim
+      - West Singhbhum
+      - West Tripura
+      - Wokha
+      - YSR District, Kadapa (Cuddapah)
+      - Yadadri Bhuvanagiri
+      - Yadgir
+      - Yamunanagar
+      - Yanam
+      - Yavatmal
+      - Zunheboto
+     

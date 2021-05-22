@@ -22,6 +22,11 @@ rules:
   - intent: covid_info
   - action: covid_info_action
 
+- rule: Provide user Covid-19 slots available
+  steps:
+  - intent: vaccine_slot
+  - action: action_vaccine_slot
+
 - rule: Provide user out-of-scope information
   steps:
   - intent: out_of_scope

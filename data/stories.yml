@@ -23,3 +23,12 @@ stories:
   steps:
   - intent: out_of_scope
   - action: default_fallback_action
+
+- story: current vaccine slot
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: vaccine_slot
+  - action: action_vaccine_slot
+  - intent: goodbye
+  - action: utter_goodbye
