@@ -1,7 +1,12 @@
-FROM rasa/rasa-sdk:2.5.0
+#!/bin/sh
+
+FROM rasa/rasa-sdk:2.8.0
 
 # Use subdirectory as working directory
 WORKDIR /app
+
+# Create app directory
+RUN mkdir -p /app/charts
 
 # Copy any additional custom requirements, if necessary (uncomment next line)
 COPY requirements.txt ./

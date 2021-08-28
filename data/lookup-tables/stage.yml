@@ -2,11 +2,10 @@ version: "2.0"
 nlu:
   - lookup: stage
     examples: |
-     - Death
-     - Deaths
-     - confirmed
-     - recovered
-     - active
-     - deceased
-
-    
+      - Death
+      - Deaths
+      - confirmed
+      - recovered
+      - active
+      - deceased
+      - discharged

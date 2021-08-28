@@ -1,17 +1,21 @@
-import requests
 import datetime
+from requests_cache import CachedSession
+import matplotlib.pyplot as plt
+
 
 
 class CovidInformation:
     base_url = "https://covid-api.mmediagroup.fr/v1/"
-
-    def get_count_by_country(self, country, stage, states, top_bottom, rate):
+    session = CachedSession('covid_information', backend='sqlite',expire_after=1800)
+    def get_count_by_country(self, country, stage, states, top_bottom, rate,sender_id):
         cases_url = self.base_url + "cases?country={countryVal}".format(
             countryVal=country
         )
-        # print(cases_url)
+        # Get some debugging info about the cache
+        print(self.session.cache)
+        print('Cached URLS:', self.session.cache.urls)
         try:
-            resp = requests.get(cases_url)
+            resp = self.session.get(cases_url)
             cases_resp = resp.json()
             print(country)
             print(stage)
@@ -21,7 +25,7 @@ class CovidInformation:
             if rate and states:
                 return self.handle_rate(cases_resp, states, stage)
             elif top_bottom:
-                return self.handle_top_bottom(cases_resp, stage, top_bottom)
+                return self.handle_top_bottom(cases_resp, stage, top_bottom,sender_id)
             elif states:
                 finalMessage = None
                 for state in states:
@@ -158,9 +162,11 @@ class CovidInformation:
         vaccine_url = self.base_url + "vaccines?country={countryVal}".format(
             countryVal=country
         )
-        print(vaccine_url)
+        # Get some debugging info about the cache
+        print(self.session.cache)
+        print('Cached URLS:', self.session.cache.urls)
         try:
-            resp = requests.get(vaccine_url)
+            resp = self.session.get(vaccine_url)
             cases_resp = resp.json()
             print(level)
             value = cases_resp["All"][level.lower()]
@@ -182,7 +188,7 @@ class CovidInformation:
         date_time_obj = datetime.datetime.strptime(dateTime, "%Y/%m/%d %H:%M:%S")
         return date_time_obj.date()
 
-    def handle_top_bottom(self, resp, stage, top_bottom):
+    def handle_top_bottom(self, resp, stage, top_bottom,sender_id):
         cases_dict = {}
         if stage == None:
             stage = "active"
@@ -200,7 +206,7 @@ class CovidInformation:
                     recovered_value = val["recovered"]
                     active_value = confirmed_value - death_value - recovered_value
                     cases_dict[key] = active_value
-        print(cases_dict)
+        #print(cases_dict)
         if top_bottom.lower() == "top":
             top_bottom_message = []
             sorted_dic = dict(
@@ -209,6 +215,7 @@ class CovidInformation:
             if stage.lower() == "deaths":
                 top_bottom_message.append("States with maximum deaths are as below :")
                 n_items = list(sorted_dic.items())[:3]
+                self.create_chart(n_items,'Deaths',sender_id,3,'Top')
                 for key, value in n_items:
                     top_bottom_message.append("\n")
                     message = self.get_top_bottom_message(stage, value, key)
@@ -218,6 +225,7 @@ class CovidInformation:
                     "States with maximum recovered cases are as below :"
                 )
                 n_items = list(sorted_dic.items())[:3]
+                self.create_chart(n_items,'Recovered',sender_id,3,'Top')
                 for key, value in n_items:
                     top_bottom_message.append("\n")
                     message = self.get_top_bottom_message(stage, value, key)
@@ -227,6 +235,7 @@ class CovidInformation:
                     "States with maximum active cases are as below :"
                 )
                 n_items = list(sorted_dic.items())[:3]
+                self.create_chart(n_items,'Active',sender_id,3,'Top')
                 for key, value in n_items:
                     top_bottom_message.append("\n")
                     message = self.get_top_bottom_message(stage, value, key)
@@ -238,6 +247,7 @@ class CovidInformation:
             if stage.lower() == "deaths":
                 top_bottom_message.append("States with minimum deaths are as below :")
                 n_items = list(sorted_dic.items())[:3]
+                self.create_chart(n_items,'Deaths',sender_id,3,'Bottom')
                 for key, value in n_items:
                     top_bottom_message.append("\n")
                     message = self.get_top_bottom_message(stage, value, key)
@@ -247,6 +257,7 @@ class CovidInformation:
                     "States with minimum recovered cases are as below :"
                 )
                 n_items = list(sorted_dic.items())[:3]
+                self.create_chart(n_items,'Recovered',sender_id,3,'Bottom')
                 for key, value in n_items:
                     top_bottom_message.append("\n")
                     message = self.get_top_bottom_message(stage, value, key)
@@ -256,9 +267,38 @@ class CovidInformation:
                     "States with minimum active cases are as below :"
                 )
                 n_items = list(sorted_dic.items())[:3]
+                self.create_chart(n_items,'Active',sender_id,3,'Bottom')
                 for key, value in n_items:
                     top_bottom_message.append("\n")
                     message = self.get_top_bottom_message(stage, value, key)
                     top_bottom_message.append(message)
 
             return "".join(top_bottom_message)
+        
+    def create_chart(self,items,label,sender_id,count,header):
+        states=[]
+        values=[]
+        for key, value in items:
+            states.append(key)
+            values.append(value)
+        plt.figure(figsize=(12,6))
+        plt.bar(states, values,width= 0.4, align='center',color='#ee6c4d', edgecolor = '#14213d')
+        plt.legend(labels = [label])
+        # This is the location for the annotated text
+        i = 1.0
+        j = 100
+        # Annotating the bar plot with the values (total death count)
+        for i in range(len(states)):
+            plt.annotate(values[i], (-0.1 + i, values[i] + j))
+
+        plt.xlabel('States')
+        plt.ylabel('Counts')
+        plt.title(f'{header} {count} States')
+        
+        try:
+            # Saving the plot as a 'png'
+            plt.savefig(f'charts/{sender_id}.png')
+            print("file created successfully !!!")
+        except Exception as e:
+            print("exception occurred while saving the file", e)
+        

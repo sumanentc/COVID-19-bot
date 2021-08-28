@@ -1,8 +1,8 @@
-version: '3'
+version: "3"
 services:
   ngrok:
     image: shkoliar/ngrok:latest
-    networks: ['rasa-network']
+    networks: ["rasa-network"]
     ports:
       - 4551:4551
     links:
@@ -12,20 +12,20 @@ services:
       - PORT=5005
     depends_on:
       - rasa
-  rasa:    
-    image: sumand/rasa-server:2.5.0
-    networks: ['rasa-network']
+  rasa:
+    image: sumand/rasa-server:2.8.0
+    networks: ["rasa-network"]
     ports:
-    - "5005:5005"
+      - "5005:5005"
     volumes:
-    - "./:/app"
+      - "./:/app"
     command:
-    - run
+      - run
   action-server:
-    image: sumand/rasa-action-server:2.5.0
-    networks: ['rasa-network']
+    image: sumand/rasa-action-server:2.8.0
+    networks: ["rasa-network"]
     ports:
-    - "5055:5055"
+      - "5055:5055"
     volumes:
-    - "./actions:/app/actions"
-networks: {rasa-network: {}}
+      - "./actions:/app/actions"
+networks: { rasa-network: {} }

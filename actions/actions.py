@@ -7,10 +7,12 @@
 
 # This is a simple example for a custom action which utters "Hello World!"
 from .information import CovidInformation as covidInfo
-from .slots import Slots as slots
+from .vaccineslots import Slots as slots
 import re
 import datetime
 from typing import Any, Text, Dict, List
+import os
+import uuid
 
 from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
@@ -29,6 +31,7 @@ class ActionCovidSearch(Action):
         domain: Dict[Text, Any],
     ) -> List[Dict[Text, Any]]:
         print("Inside ActionCovidSearch action !!!!")
+        sender_id = uuid.uuid4()
         entities = tracker.latest_message["entities"]
         country = "India"
         stage = None
@@ -58,11 +61,14 @@ class ActionCovidSearch(Action):
                 rate = item["value"]
         if stage or states or top_bottom or rate:
             covid_info = covidInfo().get_count_by_country(
-                country, stage, states, top_bottom, rate
+                country, stage, states, top_bottom, rate,sender_id
             )
         else:
             covid_info = "Kindly rephrase your question."
-        dispatcher.utter_message(text=covid_info)
+        if top_bottom:
+          dispatcher.utter_message(text=covid_info,image=f'http://localhost:7000/img/charts/{sender_id}.png')
+        else :
+          dispatcher.utter_message(text=covid_info) 
         return []
 
 

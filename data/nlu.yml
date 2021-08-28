@@ -1,285 +1,289 @@
 version: "2.0"
 
 nlu:
-- intent: covid_info
-  examples: |
-    - what is coronavirus
-    - what is COVID 19
+  - intent: covid_info
+    examples: |
+      - what is coronavirus
+      - what is COVID 19
 
-- intent: vaccine_info
-  examples: |
-    - how many people are [fully](level) vaccinated in [India](country)
-    - how many people are [partially](level) vaccinated in [India](country)
+  - intent: vaccine_info
+    examples: |
+      - how many people are [fully](level) vaccinated in [India](country)
+      - how many people are [partially](level) vaccinated in [India](country)
 
-- intent: vaccine_slot
-  examples: |
-    - how many slots are available in [Mumbai](district) 
-    - how many slots are available in [Ahmedabad Corporation](district)
-    - how many slots are available in [Amravati](district)
-    - slots available in [Pune](district)
-    - slots in [Aurangabad](district)
-    - slots available in [Kolhapur](district)
-    - how many slots are available in [Nagpur](district)
-    - how many slots are available in [Nanded](district)
-    - how many slots are available in [Nashik](district)
-    - slots in [Palghar](district)
-    - slots in [Raigad](district)
-    - slots in [Ratnagiri](district)
-    - slots in [Sangli](district)
-    - slots in [Solapur](district)
-    - slots in [Thane](district)
-    - slots in [Wardha](district)
-    - slots in [Alipurduar District](district)
-    - slots in [Bankura](district)
-    - how many slots are available in [Basirhat HD](district)
-    - how many slots are available in [Birbhum](district)
-    - how many slots are available in [Bishnupur HD](district)
-    - how many slots are available in [Cooch Behar](district)
-    - how many slots are available in [COOCHBEHAR](district)
-    - slots in [Dakshin Dinajpur](district)
-    - slots in [Darjeeling](district)
-    - slots in [Diamond Harbor HD](district)
-    - slots in [East Bardhaman](district)
-    - slots in [Hoogly](district)
-    - slots in [Howrah](district)
-    - slots in [Jalpaiguri](district)
-    - slots in [Jhargram](district)
-    - slots in [Kalimpong](district)
-    - slots in [Kolkata](district)
-    - slots in [Malda](district)
-    - slots in [Murshidabad](district)
-    - slots in [Nadia](district)
-    - slots in [Nandigram HD](district)
-    - slots in [North 24 Parganas](district)
-    - slots in [Paschim Medinipore](district)
-    - slots in [Purba Medinipore](district)
-    - slots in [Purulia](district)
-    - slots in [Rampurhat HD](district)
-    - slots in [South 24 Parganas](district)
-    - slots in [Uttar Dinajpur](district)
-    - slots in [West Bardhaman](district)
-    - slots are available in [Mumbai](district) [400066](pincode)
-    - slots available in [400066](pincode)
+  - intent: vaccine_slot
+    examples: |
+      - how many slots are available in [Mumbai](district) 
+      - how many slots are available in [Ahmedabad Corporation](district)
+      - how many slots are available in [Amravati](district)
+      - slots available in [Pune](district)
+      - slots in [Aurangabad](district)
+      - slots available in [Kolhapur](district)
+      - how many slots are available in [Nagpur](district)
+      - how many slots are available in [Nanded](district)
+      - how many slots are available in [Nashik](district)
+      - slots in [Palghar](district)
+      - slots in [Raigad](district)
+      - slots in [Ratnagiri](district)
+      - slots in [Sangli](district)
+      - slots in [Solapur](district)
+      - slots in [Thane](district)
+      - slots in [Wardha](district)
+      - slots in [Alipurduar District](district)
+      - slots in [Bankura](district)
+      - how many slots are available in [Basirhat HD](district)
+      - how many slots are available in [Birbhum](district)
+      - how many slots are available in [Bishnupur HD](district)
+      - how many slots are available in [Cooch Behar](district)
+      - how many slots are available in [COOCHBEHAR](district)
+      - slots in [Dakshin Dinajpur](district)
+      - slots in [Darjeeling](district)
+      - slots in [Diamond Harbor HD](district)
+      - slots in [East Bardhaman](district)
+      - slots in [Hoogly](district)
+      - slots in [Howrah](district)
+      - slots in [Jalpaiguri](district)
+      - slots in [Jhargram](district)
+      - slots in [Kalimpong](district)
+      - slots in [Kolkata](district)
+      - slots in [Malda](district)
+      - slots in [Murshidabad](district)
+      - slots in [Nadia](district)
+      - slots in [Nandigram HD](district)
+      - slots in [North 24 Parganas](district)
+      - slots in [Paschim Medinipore](district)
+      - slots in [Purba Medinipore](district)
+      - slots in [Purulia](district)
+      - slots in [Rampurhat HD](district)
+      - slots in [South 24 Parganas](district)
+      - slots in [Uttar Dinajpur](district)
+      - slots in [West Bardhaman](district)
+      - slots are available in [Mumbai](district) [400066](pincode)
+      - slots available in [400066](pincode)
 
-- intent: covid_status
-  examples: |
-    - what is the total number of [confirmed](stage) cases in [india](country)
-    - what is the total number of [recovered](stage) cases in [India](country)
-    - what is the total number of [active](stage) cases in [India](country)
-    - what is the total number of [deceased](stage) in [India](country)
-    - what is the total number of [confirmed](stage) cases in [Andhra Pradesh](state)
-    - what is the total number of [confirmed](stage) cases in [Maharashtra](state)
-    - what is the total number of [recovered](stage) cases in [West Bengal](state)
-    - what is the total number of [active](stage) cases in [West Bengal](state)
-    - what is the total number of [active](stage) cases in [kerala](state)
-    - what is the total number of [deaths](stage) in [karnataka](state)
-    - what is the total number of [deaths](stage) in [Goa](state)
-    - what is the total number of [deaths](stage) in [Gujarat](state)
-    - what is the total number of [active](stage) in [Andhra Pradesh](state)
-    - what is the total number of [recovered](stage) in [Arunachal Pradesh](state)
-    - what is the total number of [deaths](stage) in [Assam](state)
-    - what is the total number of [confirmed](stage) in [Bihar](state)
-    - what is the total number of [deaths](stage) in [Chhattisgarh](state)
-    - what is the total number of [deaths](stage) in [Haryana](state)
-    - what is the total number of [confirmed](stage) in [Himachal Pradesh](state)
-    - what is the total number of [deaths](stage) in [Jharkhand](state)
-    - what is the total number of [deaths](stage) in [Kerala](state)
-    - what is the total number of [recovered](stage) in [Madhya Pradesh](state)
-    - what is the total number of [deaths](stage) in [Manipur](state)
-    - what is the total number of [deaths](stage) in [Meghalaya](state)
-    - what is the total number of [deaths](stage) in [Mizoram](state)
-    - what is the total number of [active](stage) in [AP](state)
-    - what is the total number of [active](stage) in [Andhra](state)
-    - what is the total number of [active](stage) in [Arunachal](state)
-    - what is the total number of [deaths](stage) in [Nagaland](state)
-    - what is the total number of [deaths](stage) in [Odisha](state)
-    - what is the total number of [deaths](stage) in [Punjab](state)
-    - what is the total number of [deaths](stage) in [Rajasthan](state)
-    - what is the total number of [deaths](stage) in [Sikkim](state)
-    - what is the total number of [deaths](stage) in [Tamil Nadu](state)
-    - what is the total number of [deaths](stage) in [Telangana](state)
-    - what is the total number of [deaths](stage) in [Tripura](state)
-    - what is the [recovery](stage) [rate](rate) in [UP](state)
-    - what is the total number of [deaths](stage) in [MP](state)
-    - what is the total number of [recover](stage) cases in [Bengal](state)
-    - what is the total number of [recovered](stage) cases in [Uttarakhand](state)
-    - what is the total number of [deaths](stage) in [Uttar Pradesh](state)
-    - what is the total number of [deaths](stage) in [Uttar Pradesh](state) and [Sikkim](state)
-    - what is the [recovery](stage) [rate](rate) in in [Uttar Pradesh](state) and [Sikkim](state)
-    - what is the [recovery](stage) [rate](rate) in in [Odisha](state)
-    - what is the [mortality](stage) [rate](rate) in in [Odisha](state)
-    - what is the [mortality](stage) [rate](rate) in in [Uttar Pradesh](state) and [Sikkim](state) 
-    - [most](top_bottom) [affected](stage) states in [India](country)
-    - [top](top_bottom) [active](stage) states
-    - [highest](top_bottom) [active](stage) states
-    - [maximum](top_bottom) [deaths](stage) states
-    - [high](top_bottom) [active](stage) states
-    - [minimum](top_bottom) [active](stage) states
-    - [lowest](top_bottom) [active](stage) states
-    - [max](top_bottom) [deaths](stage) states
-    - [min](top_bottom) [active](stage) cases in which states
-    - [most](top_bottom) [recovered](stage) state in [India](country)
-    - [most](top_bottom) [deaths](stage) in which state in [India](country)
-    - [least](top_bottom) [affected](stage) states in [India](country)
-    - [most](top_bottom) [deaths](stage) states in [India](country)
-    - [least](top_bottom) [deaths](stage) states in [India](country)
-  
+  - intent: covid_status
+    examples: |
+      - Total [death](stage)
+      - Total [recovered](stage)
+      - total [active](stage)
+      - total cases
+      - total [discharged](stage)
+      - what is the total number of [confirmed](stage) cases in [india](country)
+      - what is the total number of [recovered](stage) cases in [India](country)
+      - what is the total number of [active](stage) cases in [India](country)
+      - what is the total number of [deceased](stage) in [India](country)
+      - what is the total number of [confirmed](stage) cases in [Andhra Pradesh](state)
+      - what is the total number of [confirmed](stage) cases in [Maharashtra](state)
+      - what is the total number of [recovered](stage) cases in [West Bengal](state)
+      - what is the total number of [active](stage) cases in [West Bengal](state)
+      - what is the total number of [active](stage) cases in [kerala](state)
+      - what is the total number of [deaths](stage) in [karnataka](state)
+      - what is the total number of [deaths](stage) in [Goa](state)
+      - what is the total number of [deaths](stage) in [Gujarat](state)
+      - what is the total number of [active](stage) in [Andhra Pradesh](state)
+      - what is the total number of [recovered](stage) in [Arunachal Pradesh](state)
+      - what is the total number of [deaths](stage) in [Assam](state)
+      - what is the total number of [confirmed](stage) in [Bihar](state)
+      - what is the total number of [deaths](stage) in [Chhattisgarh](state)
+      - what is the total number of [deaths](stage) in [Haryana](state)
+      - what is the total number of [confirmed](stage) in [Himachal Pradesh](state)
+      - what is the total number of [deaths](stage) in [Jharkhand](state)
+      - what is the total number of [deaths](stage) in [Kerala](state)
+      - what is the total number of [recovered](stage) in [Madhya Pradesh](state)
+      - what is the total number of [deaths](stage) in [Manipur](state)
+      - what is the total number of [deaths](stage) in [Meghalaya](state)
+      - what is the total number of [deaths](stage) in [Mizoram](state)
+      - what is the total number of [active](stage) in [AP](state)
+      - what is the total number of [active](stage) in [Andhra](state)
+      - what is the total number of [active](stage) in [Arunachal](state)
+      - what is the total number of [deaths](stage) in [Nagaland](state)
+      - what is the total number of [deaths](stage) in [Odisha](state)
+      - what is the total number of [deaths](stage) in [Punjab](state)
+      - what is the total number of [deaths](stage) in [Rajasthan](state)
+      - what is the total number of [deaths](stage) in [Sikkim](state)
+      - what is the total number of [deaths](stage) in [Tamil Nadu](state)
+      - what is the total number of [deaths](stage) in [Telangana](state)
+      - what is the total number of [deaths](stage) in [Tripura](state)
+      - what is the [recovery](stage) [rate](rate) in [UP](state)
+      - what is the total number of [deaths](stage) in [MP](state)
+      - what is the total number of [recover](stage) cases in [Bengal](state)
+      - what is the total number of [recovered](stage) cases in [Uttarakhand](state)
+      - what is the total number of [deaths](stage) in [Uttar Pradesh](state)
+      - what is the total number of [deaths](stage) in [Uttar Pradesh](state) and [Sikkim](state)
+      - what is the [recovery](stage) [rate](rate) in in [Uttar Pradesh](state) and [Sikkim](state)
+      - what is the [recovery](stage) [rate](rate) in in [Odisha](state)
+      - what is the [mortality](stage) [rate](rate) in in [Odisha](state)
+      - what is the [mortality](stage) [rate](rate) in in [Uttar Pradesh](state) and [Sikkim](state) 
+      - [most](top_bottom) [affected](stage) states in [India](country)
+      - [top](top_bottom) [active](stage) states
+      - [highest](top_bottom) [active](stage) states
+      - [maximum](top_bottom) [deaths](stage) states
+      - [high](top_bottom) [active](stage) states
+      - [minimum](top_bottom) [active](stage) states
+      - [lowest](top_bottom) [active](stage) states
+      - [max](top_bottom) [deaths](stage) states
+      - [min](top_bottom) [active](stage) cases in which states
+      - [most](top_bottom) [recovered](stage) state in [India](country)
+      - [most](top_bottom) [deaths](stage) in which state in [India](country)
+      - [least](top_bottom) [affected](stage) states in [India](country)
+      - [most](top_bottom) [deaths](stage) states in [India](country)
+      - [least](top_bottom) [deaths](stage) states in [India](country)
 
-- intent: greet
-  examples: |
-    - hey
-    - hello
-    - hi
-    - hello there
-    - good morning
-    - good evening
-    - moin
-    - hey there
-    - let's go
-    - hey dude
-    - goodmorning
-    - goodevening
-    - good afternoon
-    - whats up
+  - intent: greet
+    examples: |
+      - hey
+      - hello
+      - hi
+      - hello there
+      - good morning
+      - good evening
+      - moin
+      - hey there
+      - let's go
+      - hey dude
+      - goodmorning
+      - goodevening
+      - good afternoon
+      - whats up
 
-- intent: goodbye
-  examples: |
-    - good afternoon
-    - cu
-    - good by
-    - cee you later
-    - good night
-    - bye
-    - goodbye
-    - have a nice day
-    - see you around
-    - bye bye
-    - see you later
+  - intent: goodbye
+    examples: |
+      - good afternoon
+      - cu
+      - good by
+      - cee you later
+      - good night
+      - bye
+      - goodbye
+      - have a nice day
+      - see you around
+      - bye bye
+      - see you later
 
-- intent: affirm
-  examples: |
-    - yes
-    - y
-    - indeed
-    - of course
-    - that sounds good
-    - correct
+  - intent: affirm
+    examples: |
+      - yes
+      - y
+      - indeed
+      - of course
+      - that sounds good
+      - correct
 
-- intent: deny
-  examples: |
-    - no
-    - n
-    - never
-    - I don't think so
-    - don't like that
-    - no way
-    - not really
+  - intent: deny
+    examples: |
+      - no
+      - n
+      - never
+      - I don't think so
+      - don't like that
+      - no way
+      - not really
 
-- intent: out_of_scope
-  examples: |
-    - blahblah
-    - ..
-    - How are you
-    - what is your name
-    - what do you do
-    - how is the weather
-    - .....
-    - what else you can do
+  - intent: out_of_scope
+    examples: |
+      - blahblah
+      - ..
+      - How are you
+      - what is your name
+      - what do you do
+      - how is the weather
+      - .....
+      - what else you can do
 
-- synonym: deaths
-  examples: |
-    - death
-    - deceased
-    - dead
-    - mortality
-    - died
+  - synonym: deaths
+    examples: |
+      - death
+      - deceased
+      - dead
+      - mortality
+      - died
 
-- synonym: active
-  examples: |
-    - current
-    - live
-    - affected
-    - positive
+  - synonym: active
+    examples: |
+      - current
+      - live
+      - affected
+      - positive
 
-- synonym: recovered
-  examples: |
-    - get back
-    - recover
-    - recovery
+  - synonym: recovered
+    examples: |
+      - get back
+      - recover
+      - recovery
+      - discharged
 
-- synonym: confirmed
-  examples: |
-    - confirm
+  - synonym: confirmed
+    examples: |
+      - confirm
 
-- synonym: India
-  examples: |
-    - india
-    - Ind
-    - In
-    - ind
-    - in
+  - synonym: India
+    examples: |
+      - india
+      - Ind
+      - In
+      - ind
+      - in
 
-- synonym: top
-  examples: |
-    - most
-    - highest
-    - high
-    - highly
-    - largest
-    - maximum
-    - max
-- synonym: bottom
-  examples: |
-    - lowest
-    - least
-    - minimum
-    - min
-- synonym: people_vaccinated
-  examples: |
-    - fully
-    - completely
-    - entirely
-    - complete
-    - whole
-    - ful
-    - full
-- synonym: people_partially_vaccinated
-  examples: |
-    - partially
-    - not fully
-    - not completely
-    - not entirely
-    - partial
+  - synonym: top
+    examples: |
+      - most
+      - highest
+      - high
+      - highly
+      - largest
+      - maximum
+      - max
+  - synonym: bottom
+    examples: |
+      - lowest
+      - least
+      - minimum
+      - min
+  - synonym: people_vaccinated
+    examples: |
+      - fully
+      - completely
+      - entirely
+      - complete
+      - whole
+      - ful
+      - full
+  - synonym: people_partially_vaccinated
+    examples: |
+      - partially
+      - not fully
+      - not completely
+      - not entirely
+      - partial
 
-- synonym: rate
-  examples: |
-    - growth
-    - percentage
-    - percent
-    - rise
-    - fall
+  - synonym: rate
+    examples: |
+      - growth
+      - percentage
+      - percent
+      - rise
+      - fall
 
-- synonym: Uttar Pradesh
-  examples: |
-    - up
-    - Uttar
+  - synonym: Uttar Pradesh
+    examples: |
+      - up
+      - Uttar
 
+  - synonym: Madhya Pradesh
+    examples: |
+      - MP
+      - madhya
 
-- synonym: Madhya Pradesh
-  examples: |
-    - MP
-    - madhya
+  - synonym: Andhra Pradesh
+    examples: |
+      - AP
+      - Andhra
 
-- synonym: Andhra Pradesh
-  examples: |
-    - AP
-    - Andhra
+  - synonym: West Bengal
+    examples: |
+      - WB
+      - Bengal
 
-- synonym: West Bengal
-  examples: |
-    - WB
-    - Bengal
-
-- synonym: Arunachal Pradesh
-  examples: |
-    - Arunachal
+  - synonym: Arunachal Pradesh
+    examples: |
+      - Arunachal

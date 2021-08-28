@@ -1,4 +1,4 @@
-import requests
+from requests_cache import CachedSession
 import datetime
 import csv
 import os
@@ -6,6 +6,7 @@ import os
 
 class Slots:
     base_url = "https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/"
+    session = CachedSession('covid_information', backend='sqlite',expire_after=1800)
     browser_header = {
         "User-Agent": "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.76 Safari/537.36"
     }
@@ -26,8 +27,11 @@ class Slots:
             )
         )
         print(slots_by_pincode_url)
+        # Get some debugging info about the cache
+        print(self.session.cache)
+        print('Cached URLS:', self.session.cache.urls)
         try:
-            resp = requests.get(slots_by_pincode_url, headers=self.browser_header)
+            resp = self.session.get(slots_by_pincode_url, headers=self.browser_header)
             slots_available_message = []
             if resp.ok:
                 slots_resp = resp.json()
@@ -60,7 +64,7 @@ class Slots:
         )
         print(slots_by_dist_url)
         try:
-            resp = requests.get(slots_by_dist_url, headers=self.browser_header)
+            resp = self.session.get(slots_by_dist_url, headers=self.browser_header)
             slots_available_message = []
             if resp.ok:
                 slots_resp = resp.json()
